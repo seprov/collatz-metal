@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E3EBE17276D24CD0054D52B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3EBE16276D24CD0054D52B /* main.swift */; };
+		9E3EBE1E276D24D90054D52B /* collatz.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9E3EBE1D276D24D90054D52B /* collatz.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		9E3EBE13276D24CD0054D52B /* collatz-metal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "collatz-metal"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3EBE16276D24CD0054D52B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9E3EBE1D276D24D90054D52B /* collatz.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = collatz.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				9E3EBE16276D24CD0054D52B /* main.swift */,
+				9E3EBE1D276D24D90054D52B /* collatz.metal */,
 			);
 			path = "collatz-metal";
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3EBE17276D24CD0054D52B /* main.swift in Sources */,
+				9E3EBE1E276D24D90054D52B /* collatz.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
