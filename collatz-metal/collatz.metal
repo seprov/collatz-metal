@@ -15,16 +15,16 @@ kernel void collatz_metal(device int*  num [[buffer(0)]],
     // compute sequence lengths
     int len2 = 0;
     if (i < *num) {
-       long val = i+1;
-       int len = 1; 
-       while (val != 1) {
-         len++;
-         if ((val % 2) == 0) {
-           val = val / 2;  // even
-         } else {
-           val = 3 * val + 1;  // odd
-         }
-       }
+        long val = i+1;
+        int len = 1;
+        while (val != 1) {
+            len++;
+            if ((val % 2) == 0) {
+                val = val / 2;  // even
+            } else {
+                val = 3 * val + 1;  // odd
+            }
+        }
         
         // this mess right here
         threadgroup atomic_int index;
