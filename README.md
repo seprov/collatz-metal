@@ -1,7 +1,7 @@
 # collatz-metal
 A Swift and Metal program that computes the longest Collatz sequence for values 1 to n in parallel.
 
-Works okay. The biggest bottleneck right now is the <code>atomic_fetch_max_explicit</code> function that I'm using (from Metal).
-Maybe that's the fastest solution, or maybe there's something faster I can do.
+Doesn't work. Sometimes the maximum sequence length is wrong. So I have a parallelism bug after all.
 
-If you have any ideas, please let me know.
+Also, the biggest performance bottleneck right now is the <code>atomic_fetch_max_explicit</code> function that I'm using (from Metal).
+Maybe that's the fastest solution, or maybe there's something faster I can do.
