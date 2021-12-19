@@ -27,9 +27,10 @@ kernel void collatz_metal(device int*  num [[buffer(0)]],
         }
         
         // this mess right here
+        // parallelism bug
         threadgroup atomic_int index;
         atomic_store_explicit( &index, *maxlen, memory_order_relaxed );
-        // threadgroup_barrier( mem_flags::mem_none ); // do i need this?
+        threadgroup_barrier( mem_flags::mem_none ); // do i need this?
         atomic_fetch_max_explicit( &index, len, memory_order_relaxed ); // bad bottleneck
         *maxlen = atomic_load_explicit( &index, memory_order_relaxed);
         
