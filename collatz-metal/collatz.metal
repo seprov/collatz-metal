@@ -17,13 +17,11 @@ kernel void collatz_metal(device int*  num [[buffer(0)]],
 {
     // compute sequence lengths
     // 2d way
-   // int index = i[0] * i[1];
+    // int index = i[0] * i[1];
     
     // 1d way
     int index = i;
-    
-    //int index = i;
-    //int len2 = 0;
+
     if (index < *num) {
         long val = index+1;
         int len = 1;
