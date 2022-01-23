@@ -11,7 +11,6 @@ using namespace metal;
 
 kernel void collatz_metal(device int*  num [[buffer(0)]],
                           device atomic_int*  maxlen [[buffer(1)]],
-                          //device int* lens [[buffer(2)]],
                           device int *resultArray [[buffer(2)]],
                           uint i [[thread_position_in_grid]])
 {
