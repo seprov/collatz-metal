@@ -11,7 +11,7 @@
 import Foundation
 import MetalKit
 
-let num = 1000_000_0 // set this to whatever you want
+let num = 1000_000 // set this to whatever you want
 
 collatz(tempNumSeq : num)
 
