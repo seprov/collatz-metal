@@ -11,7 +11,7 @@
 import Foundation
 import MetalKit
 
-let num = 100 // set this to whatever you want
+let num = 1000_000_0 // set this to whatever you want
 
 collatz(tempNumSeq : num)
 
@@ -91,7 +91,8 @@ func collatz(tempNumSeq : Int) {
     
     print()
     print("compute time is \(String(format: "%.05f", computeElapsed))")
-    print("num is ", tempNumSeq)
+    // Sometimes compute time is n, sometimes it is 2n. It seems to alternate. It's never in between.
+    print("number of sequences is", tempNumSeq)
     print("max sequence length is", maxLenBufPtr!.pointee)
     print()
 }
