@@ -6,16 +6,26 @@
 //
 
 #include <metal_stdlib>
+
 using namespace metal;
 
 kernel void collatz_metal(device int*  num [[buffer(0)]],
-                          device int*  maxlen [[buffer(1)]],
+                          device atomic_int*  maxlen [[buffer(1)]],
+                          //device int* lens [[buffer(2)]],
+                          device int *resultArray [[buffer(2)]],
                           uint i [[thread_position_in_grid]])
 {
     // compute sequence lengths
-    int len2 = 0;
-    if (i < *num) {
-        long val = i+1;
+    // 2d way
+   // int index = i[0] * i[1];
+    
+    // 1d way
+    int index = i;
+    
+    //int index = i;
+    //int len2 = 0;
+    if (index < *num) {
+        long val = index+1;
         int len = 1;
         while (val != 1) {
             len++;
@@ -26,13 +36,8 @@ kernel void collatz_metal(device int*  num [[buffer(0)]],
             }
         }
         
-        // this mess right here
-        // parallelism bug
-        threadgroup atomic_int index;
-        atomic_store_explicit( &index, *maxlen, memory_order_relaxed );
-        threadgroup_barrier( mem_flags::mem_none ); // do i need this?
-        atomic_fetch_max_explicit( &index, len, memory_order_relaxed ); // bad bottleneck
-        *maxlen = atomic_load_explicit( &index, memory_order_relaxed);
-        
+        // This is for that optional result array
+        resultArray[index*2] = len;
+        atomic_fetch_max_explicit( maxlen, len, memory_order_relaxed ); // bottleneck
     }
 }
